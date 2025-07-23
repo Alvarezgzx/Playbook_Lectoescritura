@@ -141,7 +141,7 @@
             <h3 class="text-2xl md:text-3xl font-bold text-gris-oscuro">Prueba el Asistente de IA y Suscríbete al Newsletter</h3>
             <p class="text-gray-600 mt-2 mb-6 max-w-2xl mx-auto">Recibe estrategias de EdTech y crea secuencias didácticas. Serás redirigido a la aplicación de IA al enviar tu correo.</p>
             
-            <form action="https://formspree.io/f/xanjrakl" method="POST" class="max-w-lg mx-auto flex flex-col sm:flex-row items-center gap-3">
+            <form id="newsletter-form" action="https://formspree.io/f/xanjrakl" method="POST" class="max-w-lg mx-auto flex flex-col sm:flex-row items-center gap-3">
                 
                 <label for="email-input" class="sr-only">Tu correo electrónico</label>
                 <input 
@@ -190,6 +190,30 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // --- Newsletter Form Redirection ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('newsletter-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        // Redirige siempre, aunque el registro falle, para experiencia fluida
+                        window.location.href = "https://app-lectoescritura-243793841218.us-west1.run.app/";
+                    }).catch(error => {
+                        // Si hay error, igual redirige (opcional: mostrar mensaje antes)
+                        window.location.href = "https://app-lectoescritura-243793841218.us-west1.run.app/";
+                    });
+                });
+            }
         });
     </script>
 </body>

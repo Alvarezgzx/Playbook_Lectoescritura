@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook de Lectoescritura: Fichero Tecnológico</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --magenta-principal: #E4007C;
+            --cian-secundario: #00AEEF;
+            --gris-oscuro: #212529;
+            --gris-claro: #F8F9FA;
+            --blanco: #FFFFFF;
+        }
+
+        body { 
+            font-family: 'Lato', sans-serif; 
+            color: var(--gris-oscuro); 
+            background-color: #E9ECEF;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+
+        /* Panel de Navegación Izquierdo */
+        .vertical-tabs-nav {
+            background-color: var(--gris-claro);
+            border-right: 1px solid #dee2e6;
+        }
+        .strategy-header {
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--blanco);
+            background: linear-gradient(135deg, var(--cian-secundario), var(--magenta-principal));
+        }
+        .header__icon svg { width: 48px; height: 48px; margin: 0 auto 0.5rem; }
+        .header__title { font-size: 1.25rem; font-weight: 700; }
+
+        .tab-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            font-weight: 600;
+            color: #495057;
+            border-left: 4px solid transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-link:hover { background-color: #dee2e6; }
+        .tab-link.active {
+            background-color: var(--blanco);
+            color: var(--cian-secundario);
+            border-left-color: var(--cian-secundario);
+        }
+        .tab-link .tab-icon { margin-right: 0.75rem; }
+
+        /* Área de Contenido Derecho */
+        .tab-content-area { background-color: var(--blanco); }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-pane.active { animation: fadeIn 0.4s ease-in-out; }
+
+        /* Contenido dentro de las pestañas */
+        .tab-pane h4 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .tab-pane .panel-description { font-size: 1.1rem; color: #4b5563; margin-bottom: 2rem; }
+        .tab-pane h5 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--gris-claro); padding-bottom: 0.5rem; }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: var(--gris-claro);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .info-card h6 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--blanco);
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            color: var(--blanco);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-3">
+        <div class="flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold text-gris-oscuro font-poppins">Playbook de Lectoescritura</a>
+            <button id="mobile-menu-button" class="md:hidden text-3xl">☰</button>
+            <ul id="desktop-nav" class="hidden md:flex items-center space-x-6 text-sm">
+                <li><a href="fundamentos.html" class="nav-link flex items-center space-x-2 text-gray-600 hover:text-magenta-principal"><span class="emoji-icon">🧠</span><span>Fundamentos</span></a></li>
+                <li><a href="estrategias.html" class="nav-link flex items-center space-x-2 text-gray-600 hover:text-magenta-principal"><span class="emoji-icon">📚</span><span>Métodos</span></a></li>
+                <li><a href="tecnologia.html" class="nav-link flex items-center space-x-2 text-gray-600 hover:text-magenta-principal"><span class="emoji-icon">💻</span><span>Tecnología</span></a></li>
+                <li><a href="psicomotricidad.html" class="nav-link flex items-center space-x-2 text-gray-600 hover:text-magenta-principal"><span class="emoji-icon">✏️</span><span>Grafomotricidad</span></a></li>
+                 <li><a href="bibliografia.html" class="nav-link flex items-center space-x-2 text-gray-600 hover:text-magenta-principal"><span class="emoji-icon">🗂️</span><span>Recursos</span></a></li>
+            </ul>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="nav-link block py-2 text-gray-600">Inicio</a></li>
+                <li><a href="fundamentos.html" class="nav-link block py-2 text-gray-600">Fundamentos Neuropsicológicos</a></li>
+                <li><a href="estrategias.html" class="nav-link block py-2 text-gray-600">Métodos de Enseñanza</a></li>
+                <li><a href="tecnologia.html" class="nav-link block py-2 text-gray-600">Herramientas Digitales</a></li>
+                <li><a href="psicomotricidad.html" class="nav-link block py-2 text-gray-600">Grafomotricidad</a></li>
+                <li><a href="bibliografia.html" class="nav-link block py-2 text-gray-600">Bibliografía</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <main class="flex-grow container mx-auto my-8">
+        <div class="md:grid md:grid-cols-12 gap-8">
+            <!-- Panel Izquierdo: Navegación -->
+            <nav class="vertical-tabs-nav md:col-span-4 lg:col-span-3 rounded-lg overflow-hidden shadow-lg h-fit" role="tablist" aria-orientation="vertical">
+                <div class="strategy-header">
+                    <div class="header__icon"><i data-lucide="laptop"></i></div>
+                    <h1 class="header__title">Fichero Tecnológico</h1>
+                </div>
+                <div class="p-2">
+                    <button class="tab-link w-full active" role="tab" aria-selected="true" aria-controls="tab-ymagina"><span class="tab-icon">🚀</span>Ymagina</button>
+                    <button class="tab-link w-full" role="tab" aria-selected="false" aria-controls="tab-dicdic"><span class="tab-icon">🗣️</span>DIC-DIC</button>
+                    <button class="tab-link w-full" role="tab" aria-selected="false" aria-controls="tab-glifing"><span class="tab-icon">📊</span>Glifing</button>
+                    <button class="tab-link w-full" role="tab" aria-selected="false" aria-controls="tab-storybird"><span class="tab-icon">🎨</span>Storybird</button>
+                    <button class="tab-link w-full" role="tab" aria-selected="false" aria-controls="tab-lector"><span class="tab-icon">📖</span>Lector Inmersivo</button>
+                    <button class="tab-link w-full" role="tab" aria-selected="false" aria-controls="tab-colorin"><span class="tab-icon">🎧</span>Colorín Colorado</button>
+                    <button class="tab-link w-full" role="tab" aria-selected="false" aria-controls="tab-picto"><span class="tab-icon">🖼️</span>Pictoescritura</button>
+                </div>
+            </nav>
+
+            <!-- Panel Derecho: Contenido -->
+            <div class="tab-content-area md:col-span-8 lg:col-span-9 bg-white p-6 md:p-10 rounded-lg shadow-lg mt-8 md:mt-0">
+                
+                <!-- Pestaña Ymagina -->
+                <div id="tab-ymagina" class="tab-pane active" role="tabpanel">
+                    <h4 class="text-cyan-700">Ymagina</h4>
+                    <p class="panel-description">Un completo entorno de aprendizaje con apps personalizables que se adaptan al ritmo de cada niño, permitiendo crear contenido y generar informes de progreso.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">🧠</span> Orientación Espacial</div>
+                            <div class="feature-item"><span class="icon">✍️</span> Psicomotricidad Fina</div>
+                            <div class="feature-item"><span class="icon">👁️</span> Coordinación Visomotora</div>
+                            <div class="feature-item"><span class="icon">🔊</span> Conciencia Fonológica</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Educación Infantil y Primaria</div>
+                        </div>
+                    </div>
+                    <a href="https://ymaginaproject.com" target="_blank" class="cta-button bg-cyan-600">Visitar el Sitio Web</a>
+                </div>
+
+                <!-- Pestaña DIC-DIC -->
+                <div id="tab-dicdic" class="tab-pane" role="tabpanel">
+                    <h4 class="text-pink-700">DIC-DIC</h4>
+                    <p class="panel-description">Un juego educativo y seguro para practicar la escritura y la correspondencia entre sonidos y grafías en múltiples idiomas, con niveles de dificultad ajustables.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">🗣️</span> Sonido-Grafía</div>
+                            <div class="feature-item"><span class="icon">🌍</span> Multilingüe</div>
+                            <div class="feature-item"><span class="icon">🎮</span> Juego Autónomo</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Niños de 3 a 12 años</div>
+                            <div class="feature-item"><i data-lucide="apple" class="w-5 h-5"></i><strong>Plataforma:</strong> Exclusivo para iOS</div>
+                        </div>
+                    </div>
+                    <a href="https://apps.apple.com/es/app/dic-dic-dictado-multiling%C3%BCe-para-la-pr%C3%A1ctica-de-la/id643656920" target="_blank" class="cta-button bg-pink-600">Descargar en la App Store</a>
+                </div>
+
+                <!-- Pestaña Glifing -->
+                <div id="tab-glifing" class="tab-pane" role="tabpanel">
+                    <h4 class="text-yellow-700">Glifing</h4>
+                    <p class="panel-description">Un método de entrenamiento de la lectura basado en evidencia científica, que diseña un plan de trabajo individualizado y registra el progreso de forma automática.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">😊</span> Emocional</div>
+                            <div class="feature-item"><span class="icon">📊</span> Personalizado</div>
+                            <div class="feature-item"><span class="icon">🎲</span> Lúdico</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Más de 200,000 niños</div>
+                        </div>
+                    </div>
+                    <a href="https://glifing.com" target="_blank" class="cta-button bg-yellow-500">Visitar el Sitio Web</a>
+                </div>
+
+                <!-- Pestaña Storybird -->
+                <div id="tab-storybird" class="tab-pane" role="tabpanel">
+                    <h4 class="text-cyan-700">Storybird</h4>
+                    <p class="panel-description">Una plataforma para crear historias y cuentos a partir de imágenes, fomentando la construcción colaborativa y la publicación en una red social de cuentos ilustrados.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">🎨</span> Creatividad</div>
+                            <div class="feature-item"><span class="icon">✍️</span> Expresión Escrita</div>
+                            <div class="feature-item"><span class="icon">🤝</span> Colaborativo</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Estudiantes</div>
+                        </div>
+                    </div>
+                    <a href="https://storybird.com" target="_blank" class="cta-button bg-cyan-600">Visitar el Sitio Web</a>
+                </div>
+
+                <!-- Pestaña Lector Inmersivo -->
+                <div id="tab-lector" class="tab-pane" role="tabpanel">
+                    <h4 class="text-pink-700">Lector inmersivo de Microsoft</h4>
+                    <p class="panel-description">Una herramienta gratuita que mejora las habilidades de lectura leyendo texto en voz alta, dividiéndolo en sílabas y optimizando el espaciado para mayor claridad.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">🛠️</span> Habilidades</div>
+                            <div class="feature-item"><span class="icon">📖</span> Decodificación</div>
+                            <div class="feature-item"><span class="icon">💪</span> Confianza</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Usuarios de cualquier edad, útil para dislexia</div>
+                        </div>
+                    </div>
+                    <a href="https://www.onenote.com/learningtools" target="_blank" class="cta-button bg-pink-600">Visitar el Sitio Web</a>
+                </div>
+
+                <!-- Pestaña Colorín Colorado -->
+                <div id="tab-colorin" class="tab-pane" role="tabpanel">
+                    <h4 class="text-yellow-700">Colorín Colorado</h4>
+                    <p class="panel-description">Una plataforma de audiocuentos y fábulas con voces profesionales, música y efectos especiales, disponibles en castellano o inglés.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">🎧</span> Comp. Auditiva</div>
+                            <div class="feature-item"><span class="icon">📚</span> Comp. Lectora</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Educación Infantil y Primaria</div>
+                        </div>
+                    </div>
+                    <a href="https://vocaeditorial.com" target="_blank" class="cta-button bg-yellow-500">Visitar el Sitio Web</a>
+                </div>
+
+                <!-- Pestaña Pictoescritura -->
+                <div id="tab-picto" class="tab-pane" role="tabpanel">
+                    <h4 class="text-cyan-700">Pictoescritura</h4>
+                    <p class="panel-description">Una metodología que conecta el lenguaje visual y verbal para estimular la creatividad, mejorar el rendimiento lectoescritor y abordar la falta de motivación.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h6>Bases Pedagógicas</h6>
+                            <div class="feature-item"><span class="icon">🖼️</span> Visual-Verbal</div>
+                            <div class="feature-item"><span class="icon">💡</span> Creatividad</div>
+                            <div class="feature-item"><span class="icon">🚀</span> Motivación</div>
+                        </div>
+                        <div class="info-card">
+                            <h6>Detalles Clave</h6>
+                            <div class="feature-item"><span class="icon">👥</span><strong>Alcance:</strong> Currículum de Lengua de Educación Primaria</div>
+                        </div>
+                    </div>
+                    <a href="https://pictoescritura.com" target="_blank" class="cta-button bg-cyan-600">Visitar el Sitio Web</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-gris-oscuro text-gray-400 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">Elaborado por Jesús Ángel Álvarez González</p>
+            <p class="text-xs mt-3">
+                &copy; 2025 Playbook de Lectoescritura. Todos los derechos reservados. | 
+                <a href="https://www.linkedin.com/in/angelalvarezg97/" target="_blank" rel="noopener noreferrer" class="font-semibold text-cian-secundario hover:underline">
+                    Conecta en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar Lucide Icons
+            lucide.createIcons();
+
+            // Lógica del Menú Móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Lógica para las Pestañas de Navegación
+            const tabsContainer = document.querySelector('[role="tablist"]');
+            const tabLinks = tabsContainer.querySelectorAll('[role="tab"]');
+            const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+            function switchTab(clickedTab) {
+                tabLinks.forEach(tab => {
+                    tab.setAttribute('aria-selected', 'false');
+                    tab.classList.remove('active');
+                });
+
+                tabPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+
+                clickedTab.setAttribute('aria-selected', 'true');
+                clickedTab.classList.add('active');
+
+                const targetPanelId = clickedTab.getAttribute('aria-controls');
+                const targetPanel = document.getElementById(targetPanelId);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                    // Volver a inicializar Lucide Icons si es necesario para los íconos cargados dinámicamente
+                    lucide.createIcons();
+                }
+            }
+
+            tabLinks.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchTab(e.currentTarget);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -140,11 +140,34 @@
     <!-- Sección Superior: Captura de Leads -->
     <div class="bg-white py-12">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="text-2xl md:text-3xl font-bold text-gris-oscuro">¿Quieres llevar estas estrategias a tu aula?</h3>
-            <p class="text-gray-600 mt-2 mb-6 max-w-2xl mx-auto">Envíame un mensaje para una consulta inicial gratuita sobre EdTech o para recibir recursos exclusivos y actualizaciones del playbook.</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-gris-oscuro">Suscríbete al Newsletter y prueba el Asistente de IA</h3>
+            <p class="text-gray-600 mt-2 mb-6 max-w-2xl mx-auto">Para crear secuencias didácticas de lectoescritura basadas en evidencia. Una vez que mandes tus datos, serás redirigido a la aplicación.</p>
             
             <!-- Formulario de Captura Funcional -->
             <form action="https://formspree.io/f/xanjrakl" method="POST" class="max-w-xl mx-auto flex flex-col gap-4">
+
+    <div>
+        <label for="email-input" class="sr-only">Tu correo electrónico</label>
+        <input 
+            type="email" 
+            id="email-input" 
+            name="email"
+            required
+            placeholder="Tu correo electrónico profesional" 
+            class="w-full px-4 py-3 text-gray-700 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        >
+    </div>
+
+    <input type="hidden" name="_next" value="https://app-lectoescritura-243793841218.us-west1.run.app">
+
+    <button 
+        type="submit" 
+        style="background-color: #E4007C;"
+        class="text-white font-bold py-3 px-6 rounded-md shadow-lg hover:opacity-90 transition-all duration-300 transform hover:-translate-y-1"
+    >
+        Suscribirme y Probar el Asistente de IA
+    </button>
+</form>
                 
                 <!-- Campo de Correo -->
                 <div>
